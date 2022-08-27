@@ -13,6 +13,10 @@ if (loginResponse):
 cookies = loginResponse.cookies
 print(cookies)
 
+custListResponse = requests.get('https://epiceriedal.comelin.com/Api/Customers', cookies=cookies)
+if (custListResponse):
+    print(custListResponse.text)
+
 emplListResponse = requests.get('https://epiceriedal.comelin.com/admin/employe/list', cookies=cookies)
 if (emplListResponse):
     print(emplListResponse.text)
