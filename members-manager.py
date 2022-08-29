@@ -6,7 +6,8 @@ config = configparser.ConfigParser()
 config.read('example.ini')
 config.read('config.ini') #overwrite values if config.ini is defined
 
-loginResponse = requests.get('https://epiceriedal.comelin.com/admin-login?username='+config['Comelin']['username']+'&password='+config['Comelin']['password'])
+params = {'username': config['Comelin']['username'], 'password': config['Comelin']['password']}
+loginResponse = requests.get('https://epiceriedal.comelin.com/admin-login', params=params)
 if (loginResponse):
     print('success')
 
